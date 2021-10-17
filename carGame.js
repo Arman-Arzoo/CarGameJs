@@ -68,6 +68,15 @@ function start() {
   player.start = true;
   window.requestAnimationFrame(starGame);
 
+  //   create a car element on roadline and append in parrent div
+  for (let i = 0; i < 5; i++) {
+    let roadLines = document.createElement("div");
+    roadLines.setAttribute("class", "roadlines");
+    roadLines.setAttribute("id", "roadlines");
+    roadLines.style.top = i * 150 + "px";
+    gameArea.appendChild(roadLines);
+  }
+
   //   create a car element on road and append in parrent div
   let car = document.createElement("div");
   car.setAttribute("class", "car");

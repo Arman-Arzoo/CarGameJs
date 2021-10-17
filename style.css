@@ -24,3 +24,11 @@
   margin: auto;
   position: relative;
 }
+/* set road lines in game */
+.roadlines {
+  width: 10px;
+  height: 100px;
+  background: rgb(253, 253, 255);
+  position: absolute;
+  margin-left: 195px;
+}

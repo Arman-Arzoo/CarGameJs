@@ -12,6 +12,15 @@
   height: 70px;
   background-color: green;
   position: absolute;
-  bottom: 200px;
-  left: 400px;
+  bottom: 100px;
+  /* left: 400px; */
+}
+
+/* set road in game */
+.gameArea {
+  width: 400px;
+  height: 100vh;
+  background: black;
+  margin: auto;
+  position: relative;
 }

@@ -37,20 +37,23 @@ function starGame() {
     window.requestAnimationFrame(starGame);
   }
 
+  let road = gameArea.getBoundingClientRect();
+  console.log(road);
+
   let car = document.getElementById("car");
   car.style.top = player.y + "px";
   car.style.left = player.x + "px";
 
-  if (keys.ArrowUp) {
+  if (keys.ArrowUp && player.y > road.top + 150) {
     player.y -= player.speed;
   }
-  if (keys.ArrowDown) {
+  if (keys.ArrowDown && player.y < road.bottom - 70) {
     player.y += player.speed;
   }
-  if (keys.ArrowLeft) {
+  if (keys.ArrowLeft && player.x > 0) {
     player.x -= player.speed;
   }
-  if (keys.ArrowRight) {
+  if (keys.ArrowRight && player.x < road.width - 50) {
     player.x += player.speed;
   }
 }

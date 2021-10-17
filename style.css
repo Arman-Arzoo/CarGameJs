@@ -17,14 +17,21 @@
   width: 80px;
   height: 90px;
   /* background-color: green; */
-  background: green;
-  /* background-image: url(demo.png);
+  /* background: green; */
+  background-image: url(car.png);
   background-repeat: no-repeat;
-  background-size: 100% 100%; */
+  background-size: 100% 100%;
+
   position: absolute;
   bottom: 100px;
 
   /* left: 400px; */
+}
+.enemy {
+  background-image: url(car1.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  transform: rotate(180deg);
 }
 
 /* set road in game */

@@ -146,12 +146,14 @@ function start() {
   player.x = car.offsetLeft;
   player.y = car.offsetTop;
 
+  console.log(car.getBoundingClientRect());
+
   //   create Enemy Car
 
   for (let i = 0; i < 3; i++) {
     let enemyCar = document.createElement("div");
     enemyCar.setAttribute("class", "enemy");
-    enemyCar.style.backgroundColor = "red";
+    // enemyCar.style.backgroundColor = "red";
     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
     enemyCar.y = (i + 1) * 350 - 1;
     enemyCar.style.top = enemyCar.y + "px";

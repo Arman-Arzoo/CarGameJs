@@ -57,6 +57,7 @@ function iscollide(a, b) {
 // end the game
 function endGame() {
   player.start = false;
+  startScreen.classList.remove("hide");
 }
 
 // moveEnemy funciton
@@ -111,10 +112,10 @@ function starGame() {
 
 function start() {
   // switch between start game to playgame
-  gameArea.classList.remove("hide");
+  //   gameArea.classList.remove("hide");
   startScreen.classList.add("hide");
-  startScreen.classList.remove("startScreen");
   score.classList.remove("hide");
+  gameArea.innerHTML = "";
 
   player.start = true;
   player.score = 0;

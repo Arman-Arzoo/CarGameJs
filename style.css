@@ -7,7 +7,8 @@
 }
 
 /* create a car using css */
-.car {
+.car,
+.enemy {
   width: 50px;
   height: 70px;
   background-color: green;
@@ -31,4 +32,20 @@
   background: rgb(253, 253, 255);
   position: absolute;
   margin-left: 195px;
+}
+
+/* side line on road */
+.sidelinesleft {
+  width: 10px;
+  height: 20px;
+  background: white;
+  position: absolute;
+}
+
+.sidelinesright {
+  width: 10px;
+  height: 20px;
+  background: white;
+  position: absolute;
+  right: 0;
 }

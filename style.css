@@ -5,15 +5,25 @@
 .hide {
   display: none;
 }
-
+.carGame {
+  background-image: url(bg2.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+}
 /* create a car using css */
 .car,
 .enemy {
-  width: 50px;
-  height: 70px;
-  background-color: green;
+  width: 80px;
+  height: 90px;
+  /* background-color: green; */
+  background: green;
+  /* background-image: url(demo.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%; */
   position: absolute;
   bottom: 100px;
+
   /* left: 400px; */
 }
 
@@ -21,9 +31,11 @@
 .gameArea {
   width: 400px;
   height: 100vh;
-  background: black;
+  background: #333333;
   margin: auto;
   position: relative;
+  border-left: 7px dashed white;
+  border-right: 7px dashed white;
 }
 /* set road lines in game */
 .roadlines {
@@ -34,29 +46,15 @@
   margin-left: 195px;
 }
 
-/* side line on road */
-.sidelinesleft {
-  width: 10px;
-  height: 20px;
-  background: white;
-  position: absolute;
-}
-
-.sidelinesright {
-  width: 10px;
-  height: 20px;
-  background: white;
-  position: absolute;
-  right: 0;
-}
-
 /* score card for player */
 .score {
   position: absolute;
   top: 30px;
   left: 80px;
-  background: gray;
-  padding: 10px;
+  background-image: url(scorebg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  padding: 18px;
   color: white;
   font-weight: bold;
   box-shadow: 0 3px 3px black;
@@ -70,7 +68,11 @@
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
-  background-color: coral;
+  width: 300px;
+  /* height: 100px; */
+  background-image: url(playbg.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   padding: 20px;
   cursor: pointer;
   box-shadow: 0 5px 5px black;

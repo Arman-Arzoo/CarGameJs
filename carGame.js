@@ -58,6 +58,11 @@ function iscollide(a, b) {
 function endGame() {
   player.start = false;
   startScreen.classList.remove("hide");
+  startScreen.innerHTML =
+    "Game Over <br>" +
+    "you Scored : " +
+    player.score +
+    "<br> Press To re Start";
 }
 
 // moveEnemy funciton
@@ -96,7 +101,7 @@ function starGame() {
   if (keys.ArrowUp && player.y > road.top + 150) {
     player.y -= player.speed;
   }
-  if (keys.ArrowDown && player.y < road.bottom - 70) {
+  if (keys.ArrowDown && player.y < road.bottom - 95) {
     player.y += player.speed;
   }
   if (keys.ArrowLeft && player.x > 0) {
@@ -107,7 +112,8 @@ function starGame() {
   }
 
   player.score++;
-  score.innerText = "Score : " + player.score;
+  let finalScore = player.score - 2;
+  score.innerText = "Score : " + finalScore;
 }
 
 function start() {
@@ -130,21 +136,6 @@ function start() {
     gameArea.appendChild(roadLines);
   }
 
-  //   left side lines on road
-  for (let i = 0; i < 15; i++) {
-    let sideLines = document.createElement("div");
-    sideLines.setAttribute("class", "sidelinesleft");
-    sideLines.style.top = i * 50 + "px";
-    gameArea.appendChild(sideLines);
-  }
-
-  //   Right side lines on road
-  for (let i = 0; i < 15; i++) {
-    let sideLines = document.createElement("div");
-    sideLines.setAttribute("class", "sidelinesright");
-    sideLines.style.top = i * 50 + "px";
-    gameArea.appendChild(sideLines);
-  }
   //   create a car element on road and append in parrent div
   let car = document.createElement("div");
   car.setAttribute("class", "car");
@@ -160,7 +151,7 @@ function start() {
   for (let i = 0; i < 3; i++) {
     let enemyCar = document.createElement("div");
     enemyCar.setAttribute("class", "enemy");
-    enemyCar.style.background = "red";
+    enemyCar.style.backgroundColor = "red";
     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
     enemyCar.y = (i + 1) * 350 - 1;
     enemyCar.style.top = enemyCar.y + "px";

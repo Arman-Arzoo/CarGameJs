@@ -5,3 +5,13 @@
 .hide {
   display: none;
 }
+
+/* create a car using css */
+.car {
+  width: 50px;
+  height: 70px;
+  background-color: green;
+  position: absolute;
+  bottom: 200px;
+  left: 400px;
+}

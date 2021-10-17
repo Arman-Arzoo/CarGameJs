@@ -7,7 +7,7 @@ const gameArea = document.getElementById("gameArea");
 startScreen.addEventListener("click", start);
 
 // let create a player
-let palyer = {};
+let player = { speed: 5 };
 
 // select specific keys using object
 let keys = {
@@ -33,20 +33,39 @@ function keyUp(e) {
 
 // start the game
 function starGame() {
-  console.log("game playing");
-  if (palyer.start) {
+  if (player.start) {
     window.requestAnimationFrame(starGame);
+  }
+
+  let car = document.getElementById("car");
+  car.style.top = player.y + "px";
+  car.style.left = player.x + "px";
+
+  if (keys.ArrowUp) {
+    player.y -= player.speed;
+  }
+  if (keys.ArrowDown) {
+    player.y += player.speed;
+  }
+  if (keys.ArrowLeft) {
+    player.x -= player.speed;
+  }
+  if (keys.ArrowRight) {
+    player.x += player.speed;
   }
 }
 
 function start() {
   gameArea.classList.remove("hide");
   startScreen.classList.add("hide");
-  palyer.start = true;
+  player.start = true;
   window.requestAnimationFrame(starGame);
 
   let car = document.createElement("div");
   car.setAttribute("class", "car");
-  car.innerText = " car is on the ground";
+  car.setAttribute("id", "car");
   gameArea.appendChild(car);
+
+  player.x = car.offsetLeft;
+  player.y = car.offsetTop;
 }

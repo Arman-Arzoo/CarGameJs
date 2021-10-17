@@ -30,6 +30,7 @@ function keyUp(e) {
   e.preventDefault();
   keys[e.key] = false;
 }
+
 // movelines funciton
 function moveLines() {
   let lines = document.querySelectorAll(".roadlines");
@@ -41,11 +42,26 @@ function moveLines() {
     item.style.top = item.y + "px";
   });
 }
+// check collision to enemy car
+function iscollide(a, b) {
+  areact = a.getBoundingClientRect();
+  breact = b.getBoundingClientRect();
+
+  return !(
+    areact.bottom < breact.top ||
+    areact.top > breact.bottom ||
+    areact.right < breact.left ||
+    areact.left > breact.right
+  );
+}
 
 // moveEnemy funciton
-function moveEnemy() {
+function moveEnemy(car) {
   let enemy = document.querySelectorAll(".enemy");
   enemy.forEach(function (item) {
+    if (iscollide(car, item)) {
+      console.log("hiting Game over");
+    }
     if (item.y >= 750) {
       item.y -= 900;
       item.style.left = Math.floor(Math.random() * 350) + "px";
@@ -57,19 +73,19 @@ function moveEnemy() {
 
 // start the game
 function starGame() {
-  // start game loop
-  if (player.start) {
-    window.requestAnimationFrame(starGame);
-    //   funtion to move line
-    moveLines();
-    moveEnemy();
-  }
-
   //   find the property of road boundary
   let road = gameArea.getBoundingClientRect();
 
   // find the car and using id and get css property
   let car = document.getElementById("car");
+  // start game loop
+  if (player.start) {
+    window.requestAnimationFrame(starGame);
+    //   funtion to move line
+    moveLines();
+    moveEnemy(car);
+  }
+
   car.style.top = player.y + "px";
   car.style.left = player.x + "px";
 

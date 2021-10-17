@@ -7,7 +7,7 @@ const gameArea = document.getElementById("gameArea");
 startScreen.addEventListener("click", start);
 
 // let create a player
-let player = { speed: 5 };
+let player = { speed: 5, score: 0 };
 
 // select specific keys using object
 let keys = {
@@ -54,13 +54,17 @@ function iscollide(a, b) {
     areact.left > breact.right
   );
 }
+// end the game
+function endGame() {
+  player.start = false;
+}
 
 // moveEnemy funciton
 function moveEnemy(car) {
   let enemy = document.querySelectorAll(".enemy");
   enemy.forEach(function (item) {
     if (iscollide(car, item)) {
-      console.log("hiting Game over");
+      endGame();
     }
     if (item.y >= 750) {
       item.y -= 900;
@@ -73,11 +77,9 @@ function moveEnemy(car) {
 
 // start the game
 function starGame() {
-  //   find the property of road boundary
   let road = gameArea.getBoundingClientRect();
-
-  // find the car and using id and get css property
   let car = document.getElementById("car");
+
   // start game loop
   if (player.start) {
     window.requestAnimationFrame(starGame);
@@ -102,13 +104,20 @@ function starGame() {
   if (keys.ArrowRight && player.x < road.width - 50) {
     player.x += player.speed;
   }
+
+  player.score++;
+  score.innerText = "Score : " + player.score;
 }
 
 function start() {
   // switch between start game to playgame
   gameArea.classList.remove("hide");
   startScreen.classList.add("hide");
+  startScreen.classList.remove("startScreen");
+  score.classList.remove("hide");
+
   player.start = true;
+  player.score = 0;
   window.requestAnimationFrame(starGame);
 
   //   create a car element on roadline and append in parrent div

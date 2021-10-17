@@ -49,3 +49,25 @@
   position: absolute;
   right: 0;
 }
+
+/* score card for player */
+.score {
+  position: absolute;
+  top: 30px;
+  left: 80px;
+  background: gray;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  box-shadow: 0 3px 3px black;
+  border-radius: 5px;
+}
+
+/* fornt page for game display  */
+.startScreen {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}

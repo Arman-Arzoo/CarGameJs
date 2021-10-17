@@ -6,6 +6,9 @@ const gameArea = document.getElementById("gameArea");
 // start game event
 startScreen.addEventListener("click", start);
 
+// let create a player
+let palyer = {};
+
 // select specific keys using object
 let keys = {
   ArrowUp: false,
@@ -31,7 +34,14 @@ function keyUp(e) {
 // start the game
 function starGame() {
   console.log("game playing");
+  if (palyer.start) {
+    window.requestAnimationFrame(starGame);
+  }
 }
+
 function start() {
+  gameArea.classList.remove("hide");
+  startScreen.classList.add("hide");
+  palyer.start = true;
   window.requestAnimationFrame(starGame);
 }

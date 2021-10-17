@@ -42,6 +42,19 @@ function moveLines() {
   });
 }
 
+// moveEnemy funciton
+function moveEnemy() {
+  let enemy = document.querySelectorAll(".enemy");
+  enemy.forEach(function (item) {
+    if (item.y >= 750) {
+      item.y -= 900;
+      item.style.left = Math.floor(Math.random() * 350) + "px";
+    }
+    item.y += player.speed;
+    item.style.top = item.y + "px";
+  });
+}
+
 // start the game
 function starGame() {
   // start game loop
@@ -49,6 +62,7 @@ function starGame() {
     window.requestAnimationFrame(starGame);
     //   funtion to move line
     moveLines();
+    moveEnemy();
   }
 
   //   find the property of road boundary
@@ -122,7 +136,7 @@ function start() {
     enemyCar.setAttribute("class", "enemy");
     enemyCar.style.background = "red";
     enemyCar.style.left = Math.floor(Math.random() * 350) + "px";
-    enemyCar.y = i * 150;
+    enemyCar.y = (i + 1) * 350 - 1;
     enemyCar.style.top = enemyCar.y + "px";
     gameArea.appendChild(enemyCar);
   }

@@ -44,4 +44,9 @@ function start() {
   startScreen.classList.add("hide");
   palyer.start = true;
   window.requestAnimationFrame(starGame);
+
+  let car = document.createElement("div");
+  car.setAttribute("class", "car");
+  car.innerText = " car is on the ground";
+  gameArea.appendChild(car);
 }

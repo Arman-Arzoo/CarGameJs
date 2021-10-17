@@ -33,17 +33,20 @@ function keyUp(e) {
 
 // start the game
 function starGame() {
+  // start game loop
   if (player.start) {
     window.requestAnimationFrame(starGame);
   }
 
+  //   find the property of road boundary
   let road = gameArea.getBoundingClientRect();
-  console.log(road);
 
+  // find the car and using id and get css property
   let car = document.getElementById("car");
   car.style.top = player.y + "px";
   car.style.left = player.x + "px";
 
+  //   movement of the player surrounding all position
   if (keys.ArrowUp && player.y > road.top + 150) {
     player.y -= player.speed;
   }
@@ -59,16 +62,19 @@ function starGame() {
 }
 
 function start() {
+  // switch between start game to playgame
   gameArea.classList.remove("hide");
   startScreen.classList.add("hide");
   player.start = true;
   window.requestAnimationFrame(starGame);
 
+  //   create a car element on road and append in parrent div
   let car = document.createElement("div");
   car.setAttribute("class", "car");
   car.setAttribute("id", "car");
   gameArea.appendChild(car);
 
+  //   set the offest of car
   player.x = car.offsetLeft;
   player.y = car.offsetTop;
 }
